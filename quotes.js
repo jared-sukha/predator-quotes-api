@@ -1,4 +1,4 @@
-export default [
+const predQuotes = [
   'This cabinet minister, does he always travel on the wrong side of the border?',
   'Cos some damn fool accused you of being the best.',
   'Dillon! You son of a bitch!',
@@ -50,3 +50,5 @@ export default [
   'It changed colours like the chameleon. It uses the jungle.',
   'There is something else. When the big man was killed, you must have wounded it. Its blood was on the leaves.',
 ]
+
+module.exports = predQuotes
