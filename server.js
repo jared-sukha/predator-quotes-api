@@ -1,7 +1,7 @@
 const express = require('express')
 const server = express()
 
-server.get('/', (req, res) => {
+server.get('/quotes', (req, res) => {
   res.send('hey hey')
 })
 
