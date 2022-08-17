@@ -13,7 +13,14 @@ server.get('/quotes/all', (req, res) => {
 server.get('/quotes/bycharacter/:id', (req, res) => {
   const charId = req.params.id.toLowerCase()
   const charQuotes = quotes.filter((c) => c.character.toLowerCase() == charId)
-  res.send(charQuotes)
+  const uniqueChars = quotes
+    .map((x) => x.character)
+    .filter((x, index, a) => a.indexOf(x) === index)
+  res.send(
+    charQuotes == 0
+      ? `Sorry we only have some quotes for the following characters ${uniqueChars}`
+      : charQuotes
+  )
 })
 
 module.exports = server
