@@ -15,12 +15,22 @@ server.get('/quotes/bycharacter/:id', (req, res) => {
   const charQuotes = quotes.filter((c) => c.character.toLowerCase() == charId)
   const uniqueChars = quotes
     .map((x) => x.character)
-    .filter((x, index, a) => a.indexOf(x) === index)
+    .filter((char, index, charArr) => charArr.indexOf(char) === index)
+
   res.send(
     charQuotes == 0
-      ? `Sorry we only have some quotes for the following characters ${uniqueChars}`
+      ? `Sorry we only have a selection of quotes for the following characters: ${uniqueChars.join(
+          ', '
+        )}`
       : charQuotes
   )
+})
+
+server.get('/quotes/search/:id', (req, res) => {
+  const word = req.params.id.toLowerCase()
+  const searchResult = quotes.filter((q) => q.quote.includes(word))
+
+  res.send(searchResult)
 })
 
 module.exports = server
