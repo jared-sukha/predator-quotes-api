@@ -3,7 +3,7 @@
 A selection of quotes from Arnold Schwarzenegger's classic movie Predator.
 
 ***Please note some quotes feature profane language.***
-
+<br/>
 
 ### GET `/quotes`
 
@@ -16,7 +16,7 @@ Returns a random quote:
 	"character": "Billy"
 }
 ```
-
+<br/>
 
 ### GET `/quotes/bycharacter/(charactername)`
 
@@ -49,6 +49,8 @@ If character name does not exist on file, the following message is returned:
 
 `Sorry we only have a selection of quotes for the following characters: Dutch, Dillon, Blain, Billy, Mac, Anna, Poncho`
 
+<br/>
+
 
 ### GET `/quotes/search/(word)`
 
@@ -64,10 +66,15 @@ https://predator-quotes.herokuapp.com/quotes/search/stick
 	}
 ]
 ```
- 
+<br/>
+
 ### GET `/quotes/all`
 
 Returns an array of all available quotes
 
 https://predator-quotes.herokuapp.com/quotes/all
+
+---
+Inspired by https://github.com/jamesseanwright/ron-swanson-quotes and https://github.com/shevabam/breaking-bad-quotes
+
 
