@@ -1,3 +1,4 @@
+const { json } = require('express')
 const express = require('express')
 const server = express()
 const quotes = require('./quotes')
@@ -28,9 +29,13 @@ server.get('/quotes/bycharacter/:id', (req, res) => {
 
 server.get('/quotes/search/:id', (req, res) => {
   const word = req.params.id.toLowerCase()
-  const searchResult = quotes.filter((q) => q.quote.includes(word))
+  const searchResult = quotes.filter((q) => q.quote.toLowerCase().includes(word))
 
-  res.send(searchResult)
+  res.send(
+    searchResult == 0
+      ? "Sorry that search doesn't match anything on file"
+      : searchResult
+  )
 })
 
 module.exports = server
