@@ -18,7 +18,7 @@ Returns a random quote:
 ```
 
 
-### GET `/quotes/bycharacter/(name)`
+### GET `/quotes/bycharacter/(charactername)`
 
 Returns an array with quotes on file by that character e.g. `/quotes/bycharacter/Poncho`
 
@@ -52,7 +52,7 @@ If character name does not exist on file, the following message is returned:
 
 ### GET `/quotes/search/(word)`
 
-Returns an array with quotes on file that include (word) e.g. `/quotes/search/stick`
+Returns an array with quotes on file that include the specified word e.g. `/quotes/search/stick`
 
 https://predator-quotes.herokuapp.com/quotes/search/stick
 
