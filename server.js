@@ -1,7 +1,14 @@
-const { json } = require('express')
 const express = require('express')
 const server = express()
 const quotes = require('./quotes')
+const cors = require('cors')
+
+server.use(
+  cors({
+    origin: '*',
+    methods: ['GET'],
+  })
+)
 
 server.get('/quotes', (req, res) => {
   res.send(quotes[Math.floor(Math.random() * quotes.length)])
@@ -29,7 +36,9 @@ server.get('/quotes/bycharacter/:id', (req, res) => {
 
 server.get('/quotes/search/:id', (req, res) => {
   const word = req.params.id.toLowerCase()
-  const searchResult = quotes.filter((q) => q.quote.toLowerCase().includes(word))
+  const searchResult = quotes.filter((q) =>
+    q.quote.toLowerCase().includes(word)
+  )
 
   res.send(
     searchResult == 0
